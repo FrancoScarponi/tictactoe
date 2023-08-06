@@ -4,9 +4,6 @@ import { Cuadrado } from './components/Cuadrado';
 import { CuadradoTurno } from './components/CuadradoTurno';
 
 
-
-
-
 function App() {
   const turnos = {
     X: "x",
@@ -20,7 +17,6 @@ function App() {
     [0, 4, 8],
     [2, 4, 6]
   ]
-
 
   const [tabla, setTabla] = useState(Array(9).fill(null))
   const [turno, setTurno] = useState(turnos.X)
@@ -47,34 +43,64 @@ function App() {
     setTabla(nuevaTabla)
     setTurno(turno === turnos.X ? turnos.O : turnos.X)
 
-
     const newGanador = checkGana(nuevaTabla)
-    setGano(newGanador)
+    if (newGanador) {
+      setGano(newGanador)
+    } else if (!nuevaTabla.includes(null)) {
+      setGano(false)
+    }
 
+  }
 
-
+  const resetGame = () => {
+    setGano(null)
+    setTabla(Array(9).fill(null))
+    setTurno(turnos.X)
   }
 
 
   return (
     <main>
-      <h1>Tic tac toe</h1>
+      <h1>Ta te ti</h1>
       <section className='tabla'>
         {
           tabla.map((a, indice) => {
             return (
-
-              <Cuadrado key={indice} indice={indice} tabla={tabla} actualizarTabla={actualizarTabla}></Cuadrado>
-
+              <Cuadrado key={indice} indice={indice} tabla={tabla} actualizarTabla={actualizarTabla}>
+              </Cuadrado>
             )
           })
         }
       </section>
-
+      
+      {/*Turnos parte de abajo*/}
       <section className='turnos'>
         <CuadradoTurno turnos={turnos.X} seleccionado={turno === turnos.X}></CuadradoTurno>
         <CuadradoTurno turnos={turnos.O} seleccionado={turno === turnos.O}></CuadradoTurno>
       </section>
+
+
+      {/*Cartel del resultado*/}
+      {
+        gano != null && (
+          <section className='winner'>
+            <div className='texto'>
+              <h2>
+                {
+                  gano === false
+                    ? 'Empate'
+                    : `Gano: ${gano}`
+                }
+              </h2>
+              <footer>
+                <button onClick={resetGame}>Empezar de nuevo</button>
+              </footer>
+            </div>
+          </section>
+        )
+      }
+
+
     </main>
   );
 }

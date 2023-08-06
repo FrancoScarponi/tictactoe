@@ -15,12 +15,18 @@
   }
 }
 
+body{
+  height: 100%;
+  background: #282c34;
+}
+
 main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #282c34;
+  
   color: white;
+  
 }
 
 .cuadrado {
@@ -32,6 +38,7 @@ main{
   font-size: 60px;
   text-align: center;
   justify-content: center;
+  border-radius: 5px;
 }
 
 .cuadrado:hover{
@@ -46,15 +53,23 @@ main{
 }
 
 .turnos {
+  margin-top: 30px;
   display: flex;
   justify-content: center;
 }
 
 .turno{
-  margin: 0 20px;
-  padding: 0 20px;
+  margin: 0 15px;
+  padding: 0 10px;
   font-size: 50px;
-  
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.span{
+  margin-bottom: 10px;
+
 }
 
 .seleccionado{
@@ -65,11 +80,23 @@ main{
 
 .winner{
   position: absolute;
-  width: 100vh;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  display: grid;
-  place-items: center ;
-  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+
+}
+
+.texto{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  width: 320px;
+  height: 300px;
 }
