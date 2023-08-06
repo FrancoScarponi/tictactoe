@@ -15,7 +15,10 @@ function App() {
     [3, 4, 5],
     [6, 7, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
   ]
 
   const [tabla, setTabla] = useState(Array(9).fill(null))
@@ -61,23 +64,27 @@ function App() {
 
   return (
     <main>
-      <h1>Ta te ti</h1>
-      <section className='tabla'>
-        {
-          tabla.map((a, indice) => {
-            return (
-              <Cuadrado key={indice} indice={indice} tabla={tabla} actualizarTabla={actualizarTabla}>
-              </Cuadrado>
-            )
-          })
-        }
-      </section>
+
+      <div className='aplicacion'>
+        <h1>Ta te ti</h1>
+        <section className='tabla'>
+          {
+            tabla.map((a, indice) => {
+              return (
+                <Cuadrado key={indice} indice={indice} tabla={tabla} actualizarTabla={actualizarTabla}>
+                </Cuadrado>
+              )
+            })
+          }
+        </section>
+        
+        {/*Turnos parte de abajo*/}
+        <section className='turnos'>
+          <CuadradoTurno turnos={turnos.X} seleccionado={turno === turnos.X}></CuadradoTurno>
+          <CuadradoTurno turnos={turnos.O} seleccionado={turno === turnos.O}></CuadradoTurno>
+        </section>
+      </div>
       
-      {/*Turnos parte de abajo*/}
-      <section className='turnos'>
-        <CuadradoTurno turnos={turnos.X} seleccionado={turno === turnos.X}></CuadradoTurno>
-        <CuadradoTurno turnos={turnos.O} seleccionado={turno === turnos.O}></CuadradoTurno>
-      </section>
 
 
       {/*Cartel del resultado*/}
@@ -99,8 +106,6 @@ function App() {
           </section>
         )
       }
-
-
     </main>
   );
 }

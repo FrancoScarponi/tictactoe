@@ -16,17 +16,25 @@
 }
 
 body{
-  height: 100%;
+  height: 100vh;
   background: #282c34;
+ 
 }
+
 
 main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  
   color: white;
-  
+}
+
+.aplicacion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .cuadrado {
@@ -108,8 +116,4 @@ main{
   margin-top: 15px;
   color: white;
   background-color: #111;
-}
-
-.btn:hover{
-  cursor: pointer;
 }
