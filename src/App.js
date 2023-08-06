@@ -93,7 +93,7 @@ function App() {
                 }
               </h2>
               <footer>
-                <button onClick={resetGame}>Empezar de nuevo</button>
+                <button className='btn' onClick={resetGame}>Empezar de nuevo</button>
               </footer>
             </div>
           </section>
