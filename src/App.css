@@ -54,6 +54,9 @@ main{
   justify-content: center;
 }
 
+.cuadrado:hover{
+  cursor: pointer;
+}
 
 .tabla {
   width: 350px;

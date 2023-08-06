@@ -15,10 +15,13 @@ function App() {
   const [turno, setTurno] = useState(turnos.X)
 
   const actualizarTabla = (indice)=>{
-    let nuevaTabla = [... tabla]
-    nuevaTabla[indice] = turno
-    setTabla(nuevaTabla)
-    setTurno(turno===turnos.X ? turnos.O : turnos.X)
+    if (tabla[indice] === null){
+      let nuevaTabla = [... tabla]
+      nuevaTabla[indice] = turno
+      setTabla(nuevaTabla)
+      setTurno(turno===turnos.X ? turnos.O : turnos.X)
+    }
+    
   }
 
 
